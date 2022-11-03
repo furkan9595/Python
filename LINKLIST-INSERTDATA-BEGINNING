@@ -1,0 +1,37 @@
+class Node:#create node(düğüm)
+    def __init__(self,dataValue=None,nextValue=None):#değer ve o değeri tutan adrese ulaşmak için değişkenleri kullanıyoruz
+        self.dataValue=dataValue
+        self.nextValue=nextValue
+
+
+
+class linkListedClass:
+    def __init__(self,headValue=None):#buradaki headvalue bizim değerimizin adresini tutuyor.
+       self.headValue=headValue
+
+    def PrintLinkList(self):
+        printValues=self.headValue
+        while printValues is not None:
+            print(printValues.dataValue)
+            printValues=printValues.nextValue
+
+
+    def AddLinkListBeginning(self,NewData):#Veri EKlemek için Fonksiyonumuzu oluşturduk
+        NewNode=Node(NewData)
+        NewNode.nextValue=self.headValue
+        self.headValue=NewNode
+
+
+
+Data1=linkListedClass()
+Data1.headValue=Node("Monday")
+Data2=Node("Tuesday")
+Data3=Node("Wednesday")
+
+Data1.headValue.nextValue=Data2
+Data2.nextValue=Data3
+#print("headvalue    ",Data1.headValue)#buradaki headvalue bizim değerimizin adresini tutuyor.
+
+
+Data1.AddLinkListBeginning("Pazar")#Eklemesi için değişkenimize parametreyi gönderdik
+Data1.PrintLinkList()
