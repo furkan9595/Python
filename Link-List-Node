@@ -1,0 +1,31 @@
+class Nodes:
+    def __init__(self,dataValue=None,dataNextValue=None):
+        self.dataValue=dataValue
+        self.dataNextValue=dataNextValue
+
+
+
+nodevalue1= Nodes("Monday- Pazartesi")
+nodevalue2= Nodes("Wednesday- Çarşamba")
+nodevalue3= Nodes("Salı- Tuesday")
+nodevalue4= Nodes("Thursday- Perşembe")
+nodevalue5= Nodes("Friday- Cuma")
+nodevalue6= Nodes("Sunday- Pazar")
+nodevalue7= Nodes("Saturday,Cumartesi")
+
+
+
+nodevalue1.dataNextValue=nodevalue3#pazartesi değerimize ulaştık ve salı değerinin adres bilgisini aldık
+nodevalue3.dataNextValue=nodevalue2#salı  değerimize ulaştık ve çarşamba değerinin adres bilgisini aldık
+nodevalue2.dataNextValue=nodevalue4#çarşamba değerimize ulaştık ve perşembe değerinin adres bilgisini aldık
+nodevalue4.dataNextValue=nodevalue5#Perşembe değerimize ulaştık ve Cuma değerinin adres bilgisini aldık
+nodevalue5.dataNextValue=nodevalue7#Cuma değerimize ulaştık ve Cumartesi değerinin adres bilgisini aldık
+nodevalue7.dataNextValue=nodevalue6#cumartesi değerimize ulaştık ve PAzar değerinin adres bilgisini aldık
+
+ValueAdressInfo=nodevalue1#değerimizin ilk değerinin adres değerini tutmak için ValueAdressInfo değişkenini oluşturduk
+
+
+while(ValueAdressInfo):# döngümüz ValueAdressInfo adresi bitene kadar dönecek
+    print(ValueAdressInfo)#burada değerlerimizin adres bilgisini ekrana yazdırıyoruz
+    print(ValueAdressInfo.dataValue) # burada adres bilgisinden değerimize tek tek ulaşıyoruz
+    ValueAdressInfo=ValueAdressInfo.dataNextValue #datanextvalue ile bir sonraki   adrese ulaşıyoruz ve döngü döndüğünde ekrana değerimizi yazdırıyoruz.
