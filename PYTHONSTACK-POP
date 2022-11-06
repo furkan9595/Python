@@ -1,0 +1,34 @@
+class Stack:
+    def __init__(self):
+        self.stack=[7]
+
+
+    def add(self,data):
+        if data not in self.stack:
+            self.stack.append(data)
+            return True
+        else:
+            return  "Sorry Your stack is owerflow"
+
+    def peek(self):
+        return self.stack[-1]
+
+
+    def remove(self):
+       if len(self.stack)<=0:
+           return "There is no element"
+       else:
+           return self.stack.pop()
+
+
+object1 = Stack()
+object1.add("Monday")
+object1.add("Tuesday")
+object1.add("Wednesday")
+object1.add("Thursday")
+object1.add("Friday")
+object1.add("Saturday")
+object1.add("Sunday")
+
+print("pop function worked and the removed value is "+object1.remove())
+print("after pop , the last element is "+object1.peek())
